@@ -34,16 +34,16 @@ function diceRoll(player) {
   var roll = generateNumber()
   if (player === 1){
     if (roll === 1) {
-      alert("You rolled a 1! Turn over!");
+      alert("You rolled a 1! Player two's turn!");
       game.players[0].turnTotal = 0
-    }else{ 
+    } else { 
     game.players[0].turnTotal += roll
     }
   } else if (player === 2){
     if (roll === 1) {
-      alert("You rolled a 1! Turn over!");
+      alert("You rolled a 1! Player one's turn!");
       game.players[1].turnTotal = 0
-    }else{ 
+    } else { 
     game.players[1].turnTotal += roll
     }
   }
@@ -53,11 +53,20 @@ function diceRoll(player) {
 }
 
 function hold(player) {
-  game.players[player].totalScore += game.players[player].turnTotal
+  game.players[player].totalScore += game.players[player].turnTotal;
+  game.players[player].turnTotal = 0;
+  winner()
   console.log(`player 1: ${game.players[0].totalScore}`)
   console.log(`player 2: ${game.players[1].totalScore}`)
 }
-
+function winner(){
+  var player1Score = game.players[0].totalScore;
+  var player2Score = game.players[1].totalScore
+  if (player1Score >= 20){
+    alert("player 1 wins")
+  }else if (player2Score >= 20)
+    alert("player 2 wins")
+}
 
 //User Logic
 var game = new Game();
@@ -90,9 +99,14 @@ $(document).ready(function(){
   })
   $("#player1hold").click(function(){
     hold(0)
+    $("span#player1gametotal").html(game.players[0].totalScore);
+    $("span#player1turntotal").html("0");
+  
   })
   $("#player2hold").click(function(){
     hold(1)
+    $("span#player2gametotal").html(game.players[1].totalScore);
+    $("span#player2turntotal").html("0");
   })
 })
 
