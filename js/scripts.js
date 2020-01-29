@@ -27,7 +27,6 @@ function Player(name, totalScore, turn) {
 
 function generateNumber(){
   var number = Math.floor( Math.random() * 6 ) +1;
-  
   return number;
 }
 
@@ -48,10 +47,15 @@ function diceRoll(player) {
     game.players[1].turnTotal += roll
     }
   }
-  console.log(`player 1: ${game.players[0].turnTotal}`)
-  console.log(`player 2: ${game.players[1].turnTotal}`)
+  // console.log(`player 1: ${game.players[0].turnTotal}`)
+  // console.log(`player 2: ${game.players[1].turnTotal}`)
   return roll
+}
 
+function hold(player) {
+  game.players[player].totalScore += game.players[player].turnTotal
+  console.log(`player 1: ${game.players[0].totalScore}`)
+  console.log(`player 2: ${game.players[1].totalScore}`)
 }
 
 
@@ -83,7 +87,12 @@ $(document).ready(function(){
   $("#player2roll").click(function(){
     diceRoll(2)
     $("span#player2turntotal").html(game.players[1].turnTotal);
-    
+  })
+  $("#player1hold").click(function(){
+    hold(0)
+  })
+  $("#player2hold").click(function(){
+    hold(1)
   })
 })
 
