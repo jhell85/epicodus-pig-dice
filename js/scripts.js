@@ -22,16 +22,36 @@ Game.prototype.addPlayer = function(player){
 function Player(name, totalScore, turn) {
   this.name = name;
   this.totalScore = totalScore;
-  this.turn = turn;
+  this.turnTotal = turn;
 }
 
-function diceRoll(){
-  var roll = Math.floor( Math.random() * 6 ) +1;
-  console.log(roll)
-  if (roll === 1) {
-    alert("You rolled a 1! Turn over!")
+function generateNumber(){
+  var number = Math.floor( Math.random() * 6 ) +1;
+  
+  return number;
+}
+
+function diceRoll(player) {
+  var roll = generateNumber()
+  if (player === 1){
+    if (roll === 1) {
+      alert("You rolled a 1! Turn over!");
+      game.players[0].turnTotal = 0
+    }else{ 
+    game.players[0].turnTotal += roll
+    }
+  } else if (player === 2){
+    if (roll === 1) {
+      alert("You rolled a 1! Turn over!");
+      game.players[1].turnTotal = 0
+    }else{ 
+    game.players[1].turnTotal += roll
+    }
   }
-  return roll;
+  console.log(`player 1: ${game.players[0].turnTotal}`)
+  console.log(`player 2: ${game.players[1].turnTotal}`)
+  return roll
+
 }
 
 
@@ -51,20 +71,18 @@ $(document).ready(function(){
     $("#player2namedisplay").append(player2Name);
     $("#nameForm").hide();
     $(".game").show();
-    var player1 =  new Player(player1Name, player1Score, player1Turn)
-    var player2 =  new Player(player2Name, player2Score, player2Turn)
+    var player1 =  new Player(player1Name, player1Score, player1Turn);
+    var player2 =  new Player(player2Name, player2Score, player2Turn);
     game.addPlayer(player1);
     game.addPlayer(player2);
-
-    console.log(game.players)
   })
   $("#player1roll").click(function(){
-    diceRoll();
-    $("span#player1turntotal").html(diceRoll);
+    diceRoll(1);
+    $("span#player1turntotal").html(game.players[0].turnTotal);
   })
   $("#player2roll").click(function(){
-    diceRoll();
-    $("span#player2turntotal").html(diceRoll);
+    diceRoll(2)
+    $("span#player2turntotal").html(game.players[1].turnTotal);
     
   })
 })
