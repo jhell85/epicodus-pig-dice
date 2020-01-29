@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <script src="js/jquery-3.4.1.js"></script>
+  <script src="js/scripts.js"></script>
+  <title>Pig Dice</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Pig Dice!</h1>
+      <h3>Instructions:</h3>
+      <p>Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold":</p>
+      <ul>
+        <li>If the player rolls a 1, they score nothing and it becomes the next player's turn.</li>
+        <li>If the player rolls any other number, it is added to their turn total and the player's turn continues.</li>
+        <li>If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.</li>
+      </ul>
+      <p>The first player to score 100 or more points wins.</p>
+      <p>For example, the first player, Donald, begins a turn with a roll of 5. Donald could hold and score 5 points, but chooses to roll again. Donald rolls a 2, and could hold with a turn total of 7 points, but chooses to roll again. Donald rolls a 1, and must end his turn without scoring. The next player, Alexis, rolls the sequence 4-5-3-5-5, after which she chooses to hold, and adds her turn total of 22 points to her score.</p>
+    </div>
+    <form id="nameForm">
+      <div class="form-group">
+        <label for="Player1name">Player 1 Name</label>
+        <input type="text" class="form-control" id="Player1name" placeholder="Enter player 1 name">
+      </div>
+      <div class="form-group">
+        <label for="Player2name">Player 2 Name</label>
+        <input type="text" class="form-control" id="Player2name" placeholder="Enter player 2 name">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <!-- Main Game -->
+    <div class="game">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="player1module">
+            <h2>Player 1: <span id="player1namedisplay"></span></h2>
+            <h3>Turn Total:</h3>
+            <span id="player1turntotal"></span>
+            <h3>Game Total:</h3>
+            <span id="player1gametotal"></span>
+            <button type="submit" class="btn btn-success">Roll</button>
+            <button type="submit" class="btn btn-info">Hold</button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="player2module">
+            <h2>Player 2: <span id="player2namedisplay"></span></h2>
+            <h3>Turn Total:</h3>
+            <span id="player2turntotal"></span>
+            <h3>Game Total:</h3>
+            <span id="player2gametotal"></span>
+            <button type="submit" class="btn btn-success">Roll</button>
+            <button type="submit" class="btn btn-info">Hold</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
