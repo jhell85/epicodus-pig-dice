@@ -1,13 +1,27 @@
 // //Business Logic
-function Game() {
-  this.players = []
-  this.currentId = 0
+function startGame(player1Name, player2Name) {
+  var player1 = player1Name;
+  player1.total = 0;
+  player2.name = player2Name;
+  player2.total = 0;
+}
+function diceRoll(){
+  var roll = Math.floor( Math.random() * 6 ) +1;
+  console.log(roll)
+  if (roll === 1) {
+    alert("You rolled a 1! Turn over!")
+  }
+  return roll;
 }
 
-Game.prototype.assignId = function() {
-  this.currentId += 1
-  return this.currentId
-}
+// Game.prototype.assignId = function() {
+//   this.currentId += 1
+//   return this.currentId
+// }
+
+// Game.prototype.addPlayer = function() {
+  
+// }
 
 
 
@@ -24,7 +38,15 @@ $(document).ready(function(){
     $("#player2namedisplay").append(player2Name);
     $("#nameForm").hide();
     $(".game").show();
-
+    startGame(player1Name, player2Name)
+  })
+  $("#player1roll").click(function(){
+    diceRoll();
+    $("span#player1turntotal").html(diceRoll);
+  })
+  $("#player2roll").click(function(){
+    diceRoll();
+    $("span#player2turntotal").html(diceRoll);
     
   })
 })
