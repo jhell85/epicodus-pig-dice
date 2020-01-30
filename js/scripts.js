@@ -77,7 +77,6 @@ function winner(){
   }
 }
 
-
 //User Logic
 var game = new Game();
 
