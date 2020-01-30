@@ -36,6 +36,7 @@ function diceRoll(player) {
     if (roll === 1) {
       alert("You rolled a 1! Player two's turn!");
       game.players[0].turnTotal = 0
+      togglePlayer(false)
     } else { 
     game.players[0].turnTotal += roll
     }
@@ -43,6 +44,7 @@ function diceRoll(player) {
     if (roll === 1) {
       alert("You rolled a 1! Player one's turn!");
       game.players[1].turnTotal = 0
+      togglePlayer(true)
     } else { 
     game.players[1].turnTotal += roll
     }
@@ -56,20 +58,35 @@ function hold(player) {
   game.players[player].totalScore += game.players[player].turnTotal;
   game.players[player].turnTotal = 0;
   winner()
-  console.log(`player 1: ${game.players[0].totalScore}`)
-  console.log(`player 2: ${game.players[1].totalScore}`)
 }
+
 function winner(){
   var player1Score = game.players[0].totalScore;
-  var player2Score = game.players[1].totalScore
-  if (player1Score >= 20){
-    alert("player 1 wins")
-  }else if (player2Score >= 20)
-    alert("player 2 wins")
+  var player2Score = game.players[1].totalScore;
+  if (player1Score >= 1){
+    alert("PLAYER 1 WINS!");
+    game.players[0].totalScore = 0;
+    game.players[1].totalScore = 0;
+  }else if (player2Score >= 20){ß
+    alert("PLAYER 2 WINS!");
+    game.players[0].totalScore = 0;
+    game.players[1].totalScore = 0;
+  }
 }
 
 //User Logic
 var game = new Game();
+
+function togglePlayer(boolean){
+  console.log("toggle ran")
+if (boolean === true){
+  $(".player2module").hide();
+  $(".player1module").show();
+} else if (boolean === false){
+  $(".player1module").hide();
+  $(".player2module").show();
+}
+};
 
 $(document).ready(function(){
   $("#nameForm").submit(function(event){
@@ -84,6 +101,7 @@ $(document).ready(function(){
     $("#player2namedisplay").append(player2Name);
     $("#nameForm").hide();
     $(".game").show();
+    togglePlayer(true)
     var player1 =  new Player(player1Name, player1Score, player1Turn);
     var player2 =  new Player(player2Name, player2Score, player2Turn);
     game.addPlayer(player1);
@@ -108,42 +126,4 @@ $(document).ready(function(){
     $("span#player2gametotal").html(game.players[1].totalScore);
     $("span#player2turntotal").html("0");
   })
-})
-
-
-
-//Graveyard ---------------------------------------------------
-
-
-// Player.prototype.addPlayer = function(player) {
-//   player.id = this.assignId();
-// }
-
-// Game.prototype.assignId = function() {
-//   this.currentId += 1;
-//   return this.currentId;
-// }
-
-
-// function Player(name){
-//   this.name = name;
-//   this.turnScore = 0;
-//   this.totalScore = 0;
-// }
-
-// function startGame(player1Name, player2Name) {
-//   var player1 = player1Name;
-//   player1.total = 0;
-//   player2.name = player2Name;
-//   player2.total = 0;
-// }
-
-
-// Game.prototype.assignId = function() {
-//   this.currentId += 1
-//   return this.currentId
-// }
-
-// Game.prototype.addPlayer = function() {
-  
-// }
+});
