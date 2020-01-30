@@ -1,18 +1,93 @@
+body {
+  background-image: url(../img/background.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.titlecard h1 {
+  font-family: 'Bowlby One SC', cursive;
+  font-size: 120px;
+  text-align: center;
+  color: white;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+}
+
+.instructions {
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.form-group label {
+  font-family: 'Bowlby One SC', cursive;
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
+
+}
+
 .game {
   display: none;
-  padding: 15px;
 }
 
 .player1module {
-  border: 2px solid black;
-  padding: 10px;
-  margin: 10px;
+  font-family: 'Bowlby One SC', cursive;
+  font-size: 40px;
+  text-align: center;
+  color: white;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
+
+}
+
+.p1gametotal h3 {
+  font-family: 'Bowlby One SC', cursive;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
+}
+
+span#player1gametotal {
+  font-family: 'Bowlby One SC', cursive;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
 }
 
 .player2module {
-  border: 2px solid black;
-  padding: 10px;
-  margin: 10px;
+  font-family: 'Bowlby One SC', cursive;
+  font-size: 40px;
+  text-align: center;
+  color: white;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
+
+}
+
+.player2module h2 {
+  font-family: 'Bowlby One SC', cursive;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
+}
+
+span#player2gametotal {
+  font-family: 'Bowlby One SC', cursive;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
 }
 
 .jumbotron h3 {
@@ -24,4 +99,8 @@ button {
   width: 100%;
   margin: 10px;
   padding: 10px;
+}
+
+footer {
+  text-align: center;
 }

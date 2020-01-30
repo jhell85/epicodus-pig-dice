@@ -6,13 +6,16 @@
   <link rel="stylesheet" href="css/styles.css" type="text/css">
   <script src="js/jquery-3.4.1.js"></script>
   <script src="js/scripts.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
   <title>Pig Dice</title>
 </head>
 
 <body>
   <div class="container">
-    <div class="jumbotron">
+    <div class="titlecard">
       <h1>Pig Dice!</h1>
+    </div>
+    <div class="instructions">
       <h3>Instructions:</h3>
       <p>Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold":</p>
       <ul>
@@ -27,50 +30,56 @@
         again. Donald rolls a 1, and must end his turn without scoring. The next player, Alexis, rolls the sequence
         4-5-3-5-5, after which she chooses to hold, and adds her turn total of 22 points to her score.</p>
     </div>
+    <!-- Player Names Input -->
     <form id="nameForm">
-      <div class="form-group">
-        <label for="Player1name">Player 1 Name</label>
-        <input type="text" class="form-control" id="Player1name" placeholder="Enter player 1 name">
-      </div>
-      <div class="form-group">
-        <label for="Player2name">Player 2 Name</label>
-        <input type="text" class="form-control" id="Player2name" placeholder="Enter player 2 name">
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
-    <!-- Main Game -->
-    <div class="game">
       <div class="row">
         <div class="col-md-6">
-          <div class="p1gametotal">
-            <h3><span id="player1namedisplay"></span>'s Total:</h3>
-            <span id="player1gametotal"></span>
-          </div>
-          <div class="player1module">
-            <h2><span id="player1namedisplay"></span></h2>
-            <h3>Turn Total:</h3>
-            <span id="player1turntotal"></span>
-            <button id="player1roll" type="submit" class="btn btn-success">Roll</button>
-            <button type="submit" id="player1hold" class="btn btn-info">Hold</button>
+          <div class="form-group">
+            <label for="Player1name">Player 1 Name:</label>
+            <input type="text" class="form-control" id="Player1name" placeholder="Enter player 1 name" required>
           </div>
         </div>
         <div class="col-md-6">
+          <div class="form-group">
+            <label for="Player2name">Player 2 Name:</label>
+            <input type="text" class="form-control" id="Player2name" placeholder="Enter player 2 name" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    <!-- Main Game -->
+    <div class="game">
+      <div class="row">
+        <div class="col-sm-6">
           <div class="p1gametotal">
-            <h3><span id="player2namedisplay"></span>'s Total:</h3>
-            <span id="player2gametotal"></span>
+            <h3><span id="player1namedisplay"></span>'s Total: <span id="player1gametotal"></span></h3>
+          </div>
+          <div class="player1module">
+            <h2><span id="player1namedisplay"></span></h2>
+            <h3>Current Roll Total: <span id="player1turntotal"></span></h3>
+            <button id="player1roll" type="submit" class="btn btn-success">Roll</button>
+            <button type="submit" id="player1hold" class="btn btn-danger">Hold</button>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="p1gametotal">
+            <h3><span id="player2namedisplay"></span>'s Total: <span id="player2gametotal"></span></h3>
           </div>
           <div class="player2module">
-            <h2>Player 2: <span id="player2namedisplay"></span></h2>
-            <h3>Turn Total:</h3>
-            <span id="player2turntotal"></span>
+            <h3>Current Roll Total: <span id="player2turntotal"></span></h3>
             <button id="player2roll" type="submit" class="btn btn-success">Roll</button>
-            <button type="submit" id="player2hold" class="btn btn-info">Hold</button>
+            <button type="submit" id="player2hold" class="btn btn-danger">Hold</button>
           </div>
         </div>
       </div>
     </div>
+    <footer>
+      <p>&copy; 2020 Josh Hellman & Brandan Sayarath</p>
+    </footer>
   </div>
+  </div>
+
 
 </body>
 
