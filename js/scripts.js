@@ -14,6 +14,8 @@ Game.prototype.addPlayer = function(player){
 //   this.turnScore = 0
 //   this.totalScore = 0
 // }
+
+
 function Player(name, totalScore, turn) {
   this.name = name;
   this.totalScore = totalScore;
@@ -29,7 +31,7 @@ function diceRoll(player) {
   var roll = generateNumber()
   if (player === 1){
     if (roll === 1) {
-      alert("You rolled a 1! Player two's turn!");
+      swal("You rolled a 1!", "Player two's turn!", "error");
       game.players[0].turnTotal = 0
       togglePlayer(false)
     } else { 
@@ -37,7 +39,7 @@ function diceRoll(player) {
     }
   } else if (player === 2){
     if (roll === 1) {
-      alert("You rolled a 1! Player one's turn!");
+      swal("You rolled a 1!", "Player one's turn!", "error");
       game.players[1].turnTotal = 0
       togglePlayer(true)
     } else { 
@@ -63,17 +65,18 @@ function hold(player) {
 function winner(){
   var player1Score = game.players[0].totalScore;
   var player2Score = game.players[1].totalScore;
-  if (player1Score >= 50){
-    alert("PLAYER 1 WINS!");
+  if (player1Score >= 100){
+    swal("PLAYER 1 WINS!", "Congratulations!", "success");
     game.players[0].totalScore = 0;
     game.players[1].totalScore = 0;
     togglePlayer(false)
-  }else if (player2Score >= 50){
-    alert("PLAYER 2 WINS!");
+  }else if (player2Score >= 100){
+    swal("PLAYER 2 WINS!", "Congratulations!", "success");
     game.players[0].totalScore = 0;
     game.players[1].totalScore = 0;
   }
 }
+
 
 //User Logic
 var game = new Game();
@@ -127,4 +130,8 @@ $(document).ready(function(){
     $("span#player2gametotal").html(game.players[1].totalScore);
     $("span#player2turntotal").html("0");
   })
+
+
 });
+
+
