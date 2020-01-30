@@ -1,5 +1,6 @@
 .game {
   display: none;
+  padding: 15px;
 }
 
 .player1module {
@@ -17,4 +18,10 @@
 .jumbotron h3 {
   margin-top: 20px;
   text-decoration: underline;
+}
+
+button {
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
 }

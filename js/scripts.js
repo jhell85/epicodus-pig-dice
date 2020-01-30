@@ -4,13 +4,8 @@ function Game() {
   this.currentId = 0;
 }
 
-Game.prototype.assignId = function() {
-  this.currentId += 1;
-  return this.currentId;
-}
 
 Game.prototype.addPlayer = function(player){
-  player.id = this.assignId();
   this.players.push(player);
 }
 
@@ -58,16 +53,22 @@ function hold(player) {
   game.players[player].totalScore += game.players[player].turnTotal;
   game.players[player].turnTotal = 0;
   winner()
+  if (player === 0){
+    togglePlayer(false);
+  } else{
+    togglePlayer(true)
+  }
 }
 
 function winner(){
   var player1Score = game.players[0].totalScore;
   var player2Score = game.players[1].totalScore;
-  if (player1Score >= 1){
+  if (player1Score >= 50){
     alert("PLAYER 1 WINS!");
     game.players[0].totalScore = 0;
     game.players[1].totalScore = 0;
-  }else if (player2Score >= 20){ß
+    togglePlayer(false)
+  }else if (player2Score >= 50){
     alert("PLAYER 2 WINS!");
     game.players[0].totalScore = 0;
     game.players[1].totalScore = 0;

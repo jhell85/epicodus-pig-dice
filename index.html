@@ -18,10 +18,14 @@
       <ul>
         <li>If the player rolls a 1, they score nothing and it becomes the next player's turn.</li>
         <li>If the player rolls any other number, it is added to their turn total and the player's turn continues.</li>
-        <li>If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.</li>
+        <li>If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's
+          turn.</li>
       </ul>
       <p>The first player to score 100 or more points wins.</p>
-      <p>For example, the first player, Donald, begins a turn with a roll of 5. Donald could hold and score 5 points, but chooses to roll again. Donald rolls a 2, and could hold with a turn total of 7 points, but chooses to roll again. Donald rolls a 1, and must end his turn without scoring. The next player, Alexis, rolls the sequence 4-5-3-5-5, after which she chooses to hold, and adds her turn total of 22 points to her score.</p>
+      <p>For example, the first player, Donald, begins a turn with a roll of 5. Donald could hold and score 5 points,
+        but chooses to roll again. Donald rolls a 2, and could hold with a turn total of 7 points, but chooses to roll
+        again. Donald rolls a 1, and must end his turn without scoring. The next player, Alexis, rolls the sequence
+        4-5-3-5-5, after which she chooses to hold, and adds her turn total of 22 points to her score.</p>
     </div>
     <form id="nameForm">
       <div class="form-group">
@@ -39,23 +43,27 @@
     <div class="game">
       <div class="row">
         <div class="col-md-6">
+          <div class="p1gametotal">
+            <h3><span id="player1namedisplay"></span>'s Total:</h3>
+            <span id="player1gametotal"></span>
+          </div>
           <div class="player1module">
-            <h2>Player 1: <span id="player1namedisplay"></span></h2>
+            <h2><span id="player1namedisplay"></span></h2>
             <h3>Turn Total:</h3>
             <span id="player1turntotal"></span>
-            <h3>Game Total:</h3>
-            <span id="player1gametotal"></span>
             <button id="player1roll" type="submit" class="btn btn-success">Roll</button>
             <button type="submit" id="player1hold" class="btn btn-info">Hold</button>
           </div>
         </div>
         <div class="col-md-6">
+          <div class="p1gametotal">
+            <h3><span id="player2namedisplay"></span>'s Total:</h3>
+            <span id="player2gametotal"></span>
+          </div>
           <div class="player2module">
             <h2>Player 2: <span id="player2namedisplay"></span></h2>
             <h3>Turn Total:</h3>
             <span id="player2turntotal"></span>
-            <h3>Game Total:</h3>
-            <span id="player2gametotal"></span>
             <button id="player2roll" type="submit" class="btn btn-success">Roll</button>
             <button type="submit" id="player2hold" class="btn btn-info">Hold</button>
           </div>
